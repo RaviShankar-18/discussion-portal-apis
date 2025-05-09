@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const fs = require("fs");
 const { initializeDatabase } = require("./db/db.connect");
@@ -11,7 +12,8 @@ app.use(express.json());
 initializeDatabase();
 
 // Read and seed the discussions.json
-const jsonData = fs.readFileSync("discussions.json", "utf-8");
+const jsonPath = path.join(__dirname, "data", "discussions.json");
+const jsonData = fs.readFileSync(jsonPath, "utf-8");
 const discussionsData = Object.values(JSON.parse(jsonData)); // Convert object to array
 
 async function seedData() {
