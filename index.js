@@ -12,7 +12,7 @@ app.use(express.json());
 initializeDatabase();
 
 // Read and seed the discussions.json
-const jsonPath = path.join(__dirname, "data", "discussions.json");
+const jsonPath = path.join(__dirname, "discussions.json");
 const jsonData = fs.readFileSync(jsonPath, "utf-8");
 const discussionsData = Object.values(JSON.parse(jsonData)); // Convert object to array
 
